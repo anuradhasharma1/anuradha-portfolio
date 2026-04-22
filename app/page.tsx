@@ -135,10 +135,9 @@ export default function Portfolio() {
           </h2>
           <div className="border-l-4 border-black ml-4">
             {[
-              { year: "2025", title: "DevKeep — Shipped", desc: "Built & deployed solo. Code snippet manager with NextAuth, MongoDB, highlight.js." },
-              { year: "2025", title: "MoodMap — Full Stack", desc: "AI travel discovery app with Gemini API, Next.js 15, NextAuth, MongoDB Atlas." },
-              { year: "2024", title: "Portfolio — Launched", desc: "Personal portfolio with canvas animation, typewriter hero, GitHub activity widget." },
-              { year: "2024", title: "BCA Commencement", desc: "Started Bachelor of Computer Applications, Class of 2028." },
+              { year: "2026", title: "DevKeep — Shipped", desc: "Built & deployed solo. Code snippet manager with NextAuth, MongoDB, highlight.js." },
+              { year: "2026", title: "MoodMap — Full Stack", desc: "AI travel discovery app with Gemini API, Next.js 15, NextAuth, MongoDB Atlas." },
+              { year: "2026", title: "Portfolio — Launched", desc: "Personal portfolio with canvas animation, typewriter hero, GitHub activity widget." },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
