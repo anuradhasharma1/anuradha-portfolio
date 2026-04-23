@@ -1,9 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import { GitBranch, Mail, Code2, ExternalLink } from "lucide-react";
-import Navbar from "@/components/Navbar";
+
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+const Navbar = dynamic(() => import("@/components/Navbar"), { ssr: false });
 
 export default function Portfolio() {
   const projects = [
@@ -84,7 +86,7 @@ export default function Portfolio() {
           <div className="relative shrink-0">
             <div className="w-48 h-48 border-4 border-black overflow-hidden bg-zinc-300">
               <div className="w-full h-full flex items-center justify-center text-6xl">
-                <Image width={240} height={240} src="/avtar.webp" alt="" />
+                <Image loading="eager" width={240} height={240} src="/avtar.webp" alt="" />
               </div>
             </div>
             <div className="absolute bottom-2 right-2 w-6 h-6 bg-green-500 border-4 border-black rounded-full" />
@@ -201,6 +203,7 @@ export default function Portfolio() {
                     <Image
                       src={proj.image}
                       alt={proj.name}
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />

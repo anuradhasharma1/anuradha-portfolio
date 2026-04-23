@@ -1,10 +1,17 @@
 "use client";
+import { useState, useLayoutEffect } from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
 import SearchPalette from "./SearchPalette";
 
 export default function Navbar() {
   const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useLayoutEffect(() => {
+    setMounted(true); // eslint-disable-line
+  }, []);
+
   const isDark = resolvedTheme === "dark";
   if (!resolvedTheme) return null;
 
@@ -17,7 +24,7 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <button
           onClick={scrollToTop}
-        className="bg-black text-white dark:bg-white dark:text-black p-2 text-xl font-heading shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.4)] hover:scale-105 hover:-translate-y-0.5 transition-transform cursor-pointer"
+          className="bg-black text-white dark:bg-white dark:text-black p-2 text-xl font-heading shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.4)] hover:scale-105 hover:-translate-y-0.5 transition-transform cursor-pointer"
         >
           A
         </button>
@@ -27,7 +34,15 @@ export default function Navbar() {
             onClick={() => setTheme(isDark ? "light" : "dark")}
             className="p-2 border-2 border-black bg-zinc-200 dark:bg-zinc-800 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-transform"
           >
-            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            {mounted ? (
+              isDark ? (
+                <Sun size={20} />
+              ) : (
+                <Moon size={20} />
+              )
+            ) : (
+              <Moon size={20} />
+            )}
           </button>
         </div>
       </nav>
