@@ -73,7 +73,7 @@ public/
   avtar.webp          # roblox-style avatar
   devkeep.png         # project screenshots
   moodmap.png
-  petalink.png
+  portfolio.png
 ```
 
 ---
