@@ -35,7 +35,7 @@ export default function Portfolio() {
   ];
 
   const skills = [
-    "React", "Next.js", "Node.js", "TypeScript", "Tailwind", "MongoDB",
+    "React", "Next.js", "Node.js", "TypeScript", "JavaScript", "Tailwind", "MongoDB", "PostgreSQL" ,"MySQL",
     "Framer Motion", "Gemini API", "NextAuth", "Git", "Vercel", "Express",
   ];
 
@@ -71,6 +71,43 @@ export default function Portfolio() {
               </button>
             </div>
           </div>
+        </section>
+
+         {/* BIO / ABOUT */}
+        <section id="about">
+          <h2 className="text-2xl font-heading mb-10 flex items-center gap-4">
+            <span className="bg-black text-white px-2">00</span> ABOUT
+          </h2>
+          <motion.div
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            viewport={{ once: true }}
+            className="border-4 border-black p-8 bg-white dark:bg-zinc-900 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] space-y-5"
+          >
+            <ul className="space-y-4 font-body text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed list-none">
+              <li className="flex gap-3">
+                <span className="text-black dark:text-white font-heading text-[10px] mt-1 shrink-0">▸</span>
+                <span>I&apos;m currently building my foundation in full stack development, learning by creating and figuring things out along the way.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-black dark:text-white font-heading text-[10px] mt-1 shrink-0">▸</span>
+                <span>I&apos;m especially interested in AI and LLMs, and I&apos;m working towards building things that combine both — real-world products powered by intelligent systems.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-black dark:text-white font-heading text-[10px] mt-1 shrink-0">▸</span>
+                <span>What drives me is curiosity — understanding how things work, how people interact with technology, and how ideas can turn into something meaningful.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-black dark:text-white font-heading text-[10px] mt-1 shrink-0">▸</span>
+                <span>For me, growth isn&apos;t just about skills or achievements. It&apos;s about becoming more aware, more disciplined, and more aligned with what I&apos;m doing.</span>
+              </li>
+            </ul>
+            <div className="pt-2 border-t-2 border-zinc-200 dark:border-zinc-700">
+              <p className="font-heading text-[10px] text-zinc-500 dark:text-zinc-400 tracking-widest">
+                STILL LEARNING. STILL BUILDING. STILL MOVING FORWARD.
+              </p>
+            </div>
+          </motion.div>
         </section>
 
         {/* PROJECTS */}
