@@ -15,6 +15,7 @@ export default function Portfolio() {
       github: "https://github.com/anuradhasharma1/devkeep",
       live: "https://devkeep-two.vercel.app/",
       status: "live" as const,
+      image: "/devkeep.png",
     },
     {
       id: "02",
@@ -24,6 +25,7 @@ export default function Portfolio() {
       github: "https://github.com/anuradhasharma1/mood-map",
       live: "https://mood-map-beige.vercel.app/",
       status: "live" as const,
+      image: "/moodmap.png",
     },
     {
       id: "03",
@@ -33,6 +35,7 @@ export default function Portfolio() {
       github: "https://github.com/anuradhasharma1/my-portfolio",
       live: "https://my-portfolio-five-smoky-45.vercel.app/",
       status: "live" as const,
+      image: "/portfolio.png",
     },
     {
       id: "04",
@@ -42,6 +45,7 @@ export default function Portfolio() {
       github: null,
       live: null,
       status: "upcoming" as const,
+      image: null,
     },
   ];
 
@@ -192,25 +196,41 @@ export default function Portfolio() {
                 }`}
               >
                 {/* Thumbnail */}
-                <div className="aspect-video bg-zinc-200 dark:bg-zinc-800 border-2 border-black mb-4 flex items-center justify-center relative overflow-hidden">
-                  <span className="font-heading text-[10px] text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-700 dark:group-hover:text-white transition-colors">
-                    PROJECT_{proj.id}
-                  </span>
-                  <div className="absolute top-2 left-2 px-2 py-1 bg-black text-white text-[8px] font-heading">
+                <div className="aspect-video border-2 border-black mb-4 relative overflow-hidden bg-zinc-200 dark:bg-zinc-800">
+                  {proj.image ? (
+                    <Image
+                      src={proj.image}
+                      alt={proj.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="font-heading text-[10px] text-zinc-400 dark:text-zinc-600">
+                        PROJECT_{proj.id}
+                      </span>
+                    </div>
+                  )}
+                  {/* tech badge */}
+                  <div className="absolute top-2 left-2 px-2 py-1 bg-black text-white text-[8px] font-heading z-10">
                     {proj.tech[0]}
                   </div>
-                  {/* UPCOMING badge */}
+                  {/* upcoming badge */}
                   {proj.status === "upcoming" && (
-                    <div className="absolute top-2 right-2 px-2 py-1 bg-yellow-400 text-black text-[8px] font-heading animate-pulse">
+                    <div className="absolute top-2 right-2 px-2 py-1 bg-yellow-400 text-black text-[8px] font-heading animate-pulse z-10">
                       UPCOMING
                     </div>
                   )}
                 </div>
- 
+
                 {/* Info */}
-                <h3 className="text-lg font-heading mb-2 text-zinc-900 dark:text-zinc-100">{proj.name}</h3>
-                <p className="text-sm font-body mb-4 text-zinc-600 dark:text-zinc-400">{proj.desc}</p>
- 
+                <h3 className="text-lg font-heading mb-2 text-zinc-900 dark:text-zinc-100">
+                  {proj.name}
+                </h3>
+                <p className="text-sm font-body mb-4 text-zinc-600 dark:text-zinc-400">
+                  {proj.desc}
+                </p>
+
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {proj.tech.map((t) => (
@@ -222,7 +242,7 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
- 
+
                 {/* Links */}
                 <div className="flex gap-3 pt-2 border-t-2 border-zinc-200 dark:border-zinc-700">
                   {proj.status === "upcoming" ? (
@@ -258,7 +278,7 @@ export default function Portfolio() {
             ))}
           </div>
         </section>
- 
+
         {/* INVENTORY */}
         <section id="inventory">
           <h2 className="text-2xl font-heading mb-10 flex items-center gap-4">
@@ -271,7 +291,10 @@ export default function Portfolio() {
                 whileHover={{ y: -5 }}
                 className="aspect-square border-4 border-black bg-zinc-200 dark:bg-zinc-800 flex flex-col items-center justify-center p-2 text-center group hover:bg-zinc-300 dark:hover:bg-zinc-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-colors cursor-default"
               >
-                <Code2 className="mb-2 group-hover:scale-110 transition-transform text-zinc-900 dark:text-zinc-100" size={24} />
+                <Code2
+                  className="mb-2 group-hover:scale-110 transition-transform text-zinc-900 dark:text-zinc-100"
+                  size={24}
+                />
                 <span className="text-[8px] font-heading uppercase leading-tight text-zinc-900 dark:text-zinc-100">
                   {skill}
                 </span>
@@ -279,7 +302,7 @@ export default function Portfolio() {
             ))}
           </div>
         </section>
- 
+
         {/* CHANGELOG */}
         <section id="changelog">
           <h2 className="text-2xl font-heading mb-10 flex items-center gap-4">
@@ -287,9 +310,21 @@ export default function Portfolio() {
           </h2>
           <div className="border-l-4 border-black dark:border-white  ml-4">
             {[
-              { year: "2026", title: "DevKeep — Shipped", desc: "Built & deployed solo. Code snippet manager with NextAuth, MongoDB, highlight.js." },
-              { year: "2026", title: "MoodMap — Full Stack", desc: "AI travel discovery app with Gemini API, Next.js 15, NextAuth, MongoDB Atlas." },
-              { year: "2026", title: "Portfolio — Launched", desc: "Personal portfolio with canvas animation, typewriter hero, GitHub activity widget." },
+              {
+                year: "2026",
+                title: "DevKeep — Shipped",
+                desc: "Built & deployed solo. Code snippet manager with NextAuth, MongoDB, highlight.js.",
+              },
+              {
+                year: "2026",
+                title: "MoodMap — Full Stack",
+                desc: "AI travel discovery app with Gemini API, Next.js 15, NextAuth, MongoDB Atlas.",
+              },
+              {
+                year: "2026",
+                title: "Portfolio — Launched",
+                desc: "Personal portfolio with canvas animation, typewriter hero, GitHub activity widget.",
+              },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -300,18 +335,26 @@ export default function Portfolio() {
                 className="relative pl-8 pb-12"
               >
                 <div className="absolute -left-3 top-0 w-5 h-5 bg-black dark:bg-white border-2 border-black dark:border-white" />
-                <span className="font-heading text-xs text-zinc-500 dark:text-zinc-400 mb-2 block">{item.year}</span>
-                <h3 className="font-heading text-sm mb-1  text-zinc-900 dark:text-zinc-500">{item.title}</h3>
-                <p className="font-body text-sm text-zinc-600 dark:text-zinc-400">{item.desc}</p>
+                <span className="font-heading text-xs text-zinc-500 dark:text-zinc-400 mb-2 block">
+                  {item.year}
+                </span>
+                <h3 className="font-heading text-sm mb-1  text-zinc-900 dark:text-zinc-500">
+                  {item.title}
+                </h3>
+                <p className="font-body text-sm text-zinc-600 dark:text-zinc-400">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
         </section>
- 
+
         {/* CONTACT */}
         <section id="contact" className="pb-20">
           <div className="border-4 border-black p-8 bg-zinc-900 text-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            <h2 className="text-2xl font-heading mb-6">QUEST: LET&apos;S TALK</h2>
+            <h2 className="text-2xl font-heading mb-6">
+              QUEST: LET&apos;S TALK
+            </h2>
             <p className="font-body mb-8 text-zinc-400">
               Open for internships. Let&apos;s build something.
             </p>
@@ -341,7 +384,6 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
- 
       </main>
       <Footer />
     </div>
