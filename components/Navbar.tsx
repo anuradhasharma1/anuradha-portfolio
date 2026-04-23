@@ -8,12 +8,19 @@ export default function Navbar() {
   const isDark = resolvedTheme === "dark";
   if (!resolvedTheme) return null;
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <header className="sticky top-0 z-40 w-full border-b-4 border-black bg-zinc-100/80 dark:bg-zinc-950/80 backdrop-blur-md">
       <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="bg-black text-white p-2 text-xl font-heading shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] dark:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <button
+          onClick={scrollToTop}
+          className="bg-black text-white p-2 text-xl font-heading shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] dark:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer"
+        >
           A
-        </div>
+        </button>
         <div className="flex items-center gap-4">
           <SearchPalette />
           <button
