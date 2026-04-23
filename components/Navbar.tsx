@@ -17,7 +17,7 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <button
           onClick={scrollToTop}
-          className="bg-black text-white p-2 text-xl font-heading shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] dark:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer"
+        className="bg-black text-white dark:bg-white dark:text-black p-2 text-xl font-heading shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.4)] hover:scale-105 hover:-translate-y-0.5 transition-transform cursor-pointer"
         >
           A
         </button>
