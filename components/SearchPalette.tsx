@@ -41,7 +41,7 @@ export default function SearchPalette() {
     <>
       <button 
         onClick={() => setOpen(true)}
-        className="flex items-center gap-2 px-3 py-1.5 border-2 border-zinc-800 dark:border-zinc-200 bg-zinc-100 dark:bg-zinc-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-px transition-all"
+        className="flex items-center gap-2 px-3 py-1.5 border-2 border-zinc-800 dark:border-zinc-200 bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-px transition-all"
       >
         <Command size={14} />
         <span className="text-xs font-heading">K</span>
@@ -57,11 +57,11 @@ export default function SearchPalette() {
               className="w-full max-w-lg bg-zinc-100 dark:bg-zinc-950 border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
               <div className="flex items-center gap-3 border-b-4 border-black pb-3 mb-4">
-                <Search className="text-zinc-500" />
+                <Search className="text-zinc-500 dark:text-zinc-400  shrink-0 " />
                 <input
                   autoFocus
                   placeholder="Search sections..."
-                  className="bg-transparent outline-none w-full font-body text-lg"
+                  className="bg-transparent outline-none w-full font-body text-lg text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                 />
@@ -71,7 +71,7 @@ export default function SearchPalette() {
                   <button
                     key={item.id}
                     onClick={() => navigate(item.id)}
-                    className="w-full text-left p-3 hover:bg-zinc-800 hover:text-white transition-colors font-heading text-[10px] flex justify-between items-center group"
+                    className="w-full text-left p-3 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-800 hover:text-white transition-colors font-heading text-[10px] flex justify-between items-center group"
                   >
                     {item.name}
                     <span className="opacity-0 group-hover:opacity-100">↵</span>
