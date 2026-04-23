@@ -63,7 +63,7 @@ export default function Portfolio() {
               Full-Stack Developer · India
             </p>
             <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
-              <button className="px-6 py-3 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-black font-heading text-xs shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform active:translate-y-1">
+              <button className="px-6 py-3 border-4 border-black font-heading text-xs shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform active:translate-y-1">
                 CONNECT
               </button>
               <button className="px-6 py-3 border-4 border-black font-heading text-xs shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform active:translate-y-1">
