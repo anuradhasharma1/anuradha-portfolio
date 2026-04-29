@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { GitBranch, Mail, Code2, ExternalLink } from "lucide-react";
+import { GitBranch, Mail, ExternalLink } from "lucide-react";
+import { skills } from "@/lib/skills";
 
 import Footer from "@/components/Footer";
 import Image from "next/image";
@@ -51,24 +52,6 @@ export default function Portfolio() {
     },
   ];
 
-  const skills = [
-    "React",
-    "Next.js",
-    "Node.js",
-    "TypeScript",
-    "JavaScript",
-    "Tailwind",
-    "MongoDB",
-    "PostgreSQL",
-    "MySQL",
-    "Framer Motion",
-    "Gemini API",
-    "NextAuth",
-    "Git",
-    "Vercel",
-    "Express",
-  ];
-
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -86,7 +69,13 @@ export default function Portfolio() {
           <div className="relative shrink-0">
             <div className="w-48 h-48 border-4 border-black overflow-hidden bg-zinc-300">
               <div className="w-full h-full flex items-center justify-center text-6xl">
-                <Image loading="eager" width={240} height={240} src="/avtar.webp" alt="" />
+                <Image
+                  loading="eager"
+                  width={240}
+                  height={240}
+                  src="/avtar.webp"
+                  alt=""
+                />
               </div>
             </div>
             <div className="absolute bottom-2 right-2 w-6 h-6 bg-green-500 border-4 border-black rounded-full" />
@@ -288,18 +277,24 @@ export default function Portfolio() {
             <span className="bg-black text-white px-2">02</span> INVENTORY
           </h2>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
-            {skills.map((skill) => (
+            {skills.map(({ name, icon: Icon }) => (
               <motion.div
-                key={skill}
+                key={name}
                 whileHover={{ y: -5 }}
                 className="aspect-square border-4 border-black bg-zinc-200 dark:bg-zinc-800 flex flex-col items-center justify-center p-2 text-center group hover:bg-zinc-300 dark:hover:bg-zinc-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-colors cursor-default"
               >
-                <Code2
-                  className="mb-2 group-hover:scale-110 transition-transform text-zinc-900 dark:text-zinc-100"
-                  size={24}
+                <Icon
+                  size={26}
+                  className="
+                    mb-2
+                    group-hover:scale-110
+                    transition-transform
+                   text-zinc-900 dark:text-zinc-100
+                 "
                 />
+
                 <span className="text-[8px] font-heading uppercase leading-tight text-zinc-900 dark:text-zinc-100">
-                  {skill}
+                  {name}
                 </span>
               </motion.div>
             ))}
