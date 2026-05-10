@@ -32,13 +32,13 @@ export default function Navbar() {
           <SearchPalette />
           <button
             onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="p-2 border-2 border-black bg-zinc-200 dark:bg-zinc-800 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-transform"
+            className="p-2 border-2 border-black bg-zinc-200 dark:bg-zinc-800 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-transform cursor-pointer"
           >
             {mounted ? (
               isDark ? (
                 <Sun size={20} />
               ) : (
-                <Moon size={20} />
+                <Moon size={20} className=" stroke-white " strokeWidth={1.5}  />
               )
             ) : (
               <Moon size={20} />
